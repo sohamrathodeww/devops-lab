@@ -8,6 +8,10 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
+const appRoutes = require("./src/routes/app.routes");
+
+app.use("/", appRoutes);
+
 app.get("/", (req, res) => {
 
     res.send("🚀 ShopCart API Running");
