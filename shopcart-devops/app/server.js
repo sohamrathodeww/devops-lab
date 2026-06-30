@@ -1,5 +1,9 @@
 require("dotenv").config();
 
+const logger = require("./src/middleware/logger.middleware");
+
+const appRoutes = require("./src/routes/app.routes");
+
 const express = require("express");
 
 const app = express();
@@ -8,7 +12,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
-const appRoutes = require("./src/routes/app.routes");
+app.use(logger);
 
 app.use("/", appRoutes);
 
